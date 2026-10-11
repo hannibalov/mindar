@@ -3,8 +3,8 @@
   <head>
     <title>Entity</title>
     <meta name="description" content="A-Frame Entity">
-    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.5.0/dist/aframe-environment-component.min.js"></script>
   </head>
   <body>
     <a-scene environment="preset: forest">
@@ -13,15 +13,15 @@
         <a-asset-item id="objecte" src="monkey03.obj"></a-asset-item>
         <a-asset-item id="objecte-mtl" src="monkey03.mtl"></a-asset-item>
       </a-assets>     
-      <a-box position="3 3 -10" rotation="0 45 45" scale="2 2 2" src="#boxTexture">
-        <a-animation attribute="scale" direction="alternate" dur="1000" repeat="indefinite" to="2.2 2.2 2.2"></a-animation>
-        <a-animation attribute="rotation" begin="mouseenter" dur="300" to="360 45 45"></a-animation>
+      <a-box position="3 3 -10" rotation="0 45 45" scale="2 2 2" src="#boxTexture"
+             animation__scale="property: scale; dir: alternate; dur: 1000; loop: true; to: 2.2 2.2 2.2"
+             animation__mouseenter="property: rotation; startEvents: mouseenter; dur: 300; to: 360 45 45">
       </a-box>
       <a-entity obj-model="obj: #objecte; mtl: #objecte-mtl"
 	  	material="color: red; opacity: 1.0"
 	  	position="-3 2 -5"
-	  	rotation="0 0 0">
-        <a-animation attribute="rotation" direction="alternate" dur="5000" repeat="indefinite" to="360 360 360"></a-animation>
+	  	rotation="0 0 0"
+        animation="property: rotation; dir: alternate; dur: 5000; loop: true; to: 360 360 360">
       </a-entity>
       <a-text value="Welcome!" color="#ff0000" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>      
       <a-camera>
